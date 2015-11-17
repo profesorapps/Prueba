@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta name="viewport" content="width=320; user-scalable=no" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Reloj</title>
+
+	  <script type="text/javascript" charset="utf-8" src="cordova-1.9.0.js"></script>
+	  <script type="text/javascript" charset="utf-8">
+      
+	  //Espera a que se inicie PhoneGap
+	  document.addEventListener("deviceready", mostrarHora, false);
+      
+      //Utiliza el objeto Date, con los métodos, getHours, getMinutes y getSeconds para obtener la hora del dispositivo
+	  setInterval("mostrarHora()", 1000);
+      function mostrarHora() {
+            var horaActual = new Date();
+            var hora = horaActual.getHours();
+            var minutos = horaActual.getMinutes();
+            var segundos = horaActual.getSeconds();
+            
+	  //Añade un cero a la izquierda de los minutos cuando el valor es menor de 10
+	  if (minutos < 10){
+		  minutos = '0' + minutos
+	  }   
+	  if (segundos < 10){
+		  segundos = '0' + segundos
+	  }
+	  var reloj = document.getElementById('hora');
+	  reloj.innerHTML = hora + ':' + minutos + ':' + segundos;
+        }   
+</script>  
+
+  </head>
+  <body>
+    <h2>Reloj</h2>
+
+	<p id="hora"></p>
+
+  </body>
+</html>
